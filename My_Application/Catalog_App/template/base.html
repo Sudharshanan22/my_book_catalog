@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!--  <link rel="stylesheet" href="{{ url_for('static',filename= 'css/base.css' )}}">-->
+    <title></title>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">My Book Store</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{{ url_for('myblueprint.homepage')}}">Home</a></li>
+      <li><a href="{{ url_for('myblueprint.book_list')}}">Book's</a></li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="{{ url_for('auth_blueprint.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+
+    </ul>
+  </div>
+</nav>
+{% block body_block %}
+
+{% endblock %}
+
+
+
+
+<footer>
+  <p>my book store           reach us @bookstore.com</p>
+</footer>
+  </body>
+</html>
