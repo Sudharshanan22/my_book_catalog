@@ -3,7 +3,7 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 #neeed to impoort sqlalchemy
 from . import Auth,Catalog_App
-db = SQLAlchemy()
+db = SQLAlchemy() #mentionaing the DB as SQLAlchemy
 
 
 def create_app(config='dev'):
