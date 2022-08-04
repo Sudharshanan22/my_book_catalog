@@ -3,15 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 
-#from My_Application import db
-
-
 class Publication(db.Model):
     __tablename__ = 'publication'
-    id = db.Column(db.Integer,primary_key=True)
+    id = db.Column(db.Integer,primary_key=True) # One Coloumn in a model need to mentioned as Primay key
     name = db.Column(db.String(50))
     def __init__(self,name):
-        self.name = name
+        self.name = name # only name is given,ID is not mentioned here so flask automatically creates an ID
     def __repr__(self):
         return f"Publication name : {self.name} ({self.id})"
 
