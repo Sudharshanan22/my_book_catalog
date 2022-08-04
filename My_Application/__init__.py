@@ -1,15 +1,15 @@
 from flask import Flask
 import os
 from flask_sqlalchemy import SQLAlchemy
-#neeed to impoort sqlalchemy
 from . import Auth,Catalog_App
+
 db = SQLAlchemy() #mentionaing the DB as SQLAlchemy
 
 
 def create_app(config='dev'):
     app = Flask(__name__,static_url_path='/static')
-    #db = SQLAlchemy()
 
+    #joing the current dirpath and dev.py path where the configuration for dev is created and adding the configuration to app
     configuration = os.path.join(os.getcwd(),'My_Application','myconfig',config+'.py')
     app.config.from_pyfile(configuration)
 

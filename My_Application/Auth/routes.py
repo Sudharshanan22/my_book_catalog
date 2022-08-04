@@ -1,20 +1,33 @@
 from . import auth_blueprint
-from flask import render_template,request
+from flask import render_template,request,flash,redirect,url_for
 from .wtf_forms import Registration
-#from flask_restful import Api,Resource,reqparse
+from .models import Users
 
+
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
+
+#userlist = Users.query.all()
 @auth_blueprint.route('/login',methods=["GET","POST"])
 def login():
-    name = None
-    email = None
-    form = Registration()
+    form = Registration() #Regestiation is the form call that was created in form.property
     if request.method == "POST":
-        name = form.name.data
-        email = form.email.data
-    return render_template('login.html',form=form,name=name,email=email)
-@auth_blueprint.route('/signup')
+        userlist = Users.query.all()
+        for username in userlist:
+            if username.user_name == form.name.data and username.user_password == form.password.data:
+                return render_template('signup.html',lst=form.name.data)
+    return render_template('login.html',form=form)
+
+@auth_blueprint.route('/signup',methods=["GET","POST"])
 def signup():
-    return 'signup'
+    form = Registration() #Regestiation is the form call that was created in form.property
+    if request.method == "POST":
+        Users.create_user(form.name.data,form.email.data,form.password.data)
+        flash("Registration sucessful...! ") ## flash messages are notifications to get (used insted of java script alert)
+        return redirect(url_for("auth_blueprint.login"))
+    return render_template('login.html',form=form)
+
 @auth_blueprint.route('/logout')
 def logout():
     return 'logout'

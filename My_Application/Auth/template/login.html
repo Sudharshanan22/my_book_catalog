@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 {% block body_block %}
 <form class="" action="" method="post">
-  {{ form.hidden_tag() }}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+   {{ form.hidden_tag() }}  <!-- CSRF token in Flask -->
     <ul>
       <li>Enter your name: {{ form.name}}</li>
       <li>Enter your Email: {{ form.email}}</li>
+      <li>Password : {{ form.password }}</li>
     </ul>
     <input type="submit" name="" value="Submit">
 </form>
@@ -12,5 +20,7 @@
 <br>
 {% if request.method == "POST" %}
   <h3>Hi {{name}}, you have registered with us via your mail id {{ email }}</h3>
+
+  <h4>{{Users_lst}}</h4>
 {% endif %}
 {% endblock %}
