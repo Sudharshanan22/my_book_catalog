@@ -17,7 +17,6 @@ def create_app(config='dev'):
     from .Catalog_App import myblueprint
     from .Auth import auth_blueprint
 
-
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(myblueprint)
 

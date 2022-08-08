@@ -30,5 +30,12 @@ class Book(db.Model):
         self.image = image
         self.num_pages= num_pages
         self.pub_id= pub_id
+    @classmethod
+    def add_book(cls,title,author,avg_ratting,format,image,num_pages,pub_id):
+        mybook = cls(title=title,author=author,avg_ratting=avg_ratting,format=format,image=image,num_pages=num_pages,pub_id= pub_id)
+        db.session.add(mybook)
+        db.session.commit()
+        return mybook
+
     def __repr__(self):
         return f" {self.title} by {self.author}"

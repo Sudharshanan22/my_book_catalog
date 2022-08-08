@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<form class="" action="" method="POST">
+  <p>Book name : {{ form.title }}</p>
+  <p>author: {{ form.author }}</p>
+  <p>avg_ratting: {{ form.avg_ratting }}</p>
+  <p>format: {{ form.format }}</p>
+  <p>image: {{ form.image }}</p>
+  <p>num_pages: {{ form.num_pages}}</p>
+  <p>pub_id: {{ form.pub_id }}</p>
+  <input class="btn btn-primary" type="submit" name="" value="Add Book">
+</form>
+{% endblock %}
