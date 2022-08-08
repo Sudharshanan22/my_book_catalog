@@ -1,7 +1,7 @@
 from flask import Flask
 from My_Application import create_app,db,Auth
 from My_Application.Auth.models import Users
-
+from My_Application.Catalog_App.models import Book
 
 
 if __name__ == '__main__':

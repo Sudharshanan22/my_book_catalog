@@ -16,26 +16,30 @@
       <a class="navbar-brand" href="#">My Book Store</a>
     </div>
     <ul class="nav navbar-nav">
+      {% if loginstatus == True %}
       <li class="active"><a href="{{ url_for('myblueprint.homepage')}}">Home</a></li>
       <li><a href="{{ url_for('myblueprint.book_list')}}">Book's</a></li>
-
+      <li><a href="{{ url_for('myblueprint.addbook')}}">Add Book</a></li>
+      {% endif %}
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li> -->
+      {% if loginstatus == False %}
+      <li><a href="{{url_for('auth_blueprint.signup')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="{{ url_for('auth_blueprint.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-
+      {% else %}
+        <li><a href="{{ url_for('auth_blueprint.login')}}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      {% endif %}
     </ul>
   </div>
 </nav>
-{% block body_block %}
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    {% block body_block %}
 
-{% endblock %}
-
-
-
-
+    {% endblock %}
+  </div>
+</div>
 <footer>
   <p>my book store           reach us @bookstore.com</p>
 </footer>

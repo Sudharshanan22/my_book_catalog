@@ -9,12 +9,11 @@
     {% endif %}
   {% endwith %}
    {{ form.hidden_tag() }}  <!-- CSRF token in Flask -->
-    <ul>
-      <li>Enter your name: {{ form.name}}</li>
-      <li>Enter your Email: {{ form.email}}</li>
-      <li>Password : {{ form.password }}</li>
-    </ul>
-    <input type="submit" name="" value="Submit">
+
+    <p>Enter your name: {{ form.name}}</p>
+    <p>Password       : {{ form.password }}</p>
+
+    <input class="btn btn-primary" type="submit" name="" value="Submit">
 </form>
 <br>
 <br>

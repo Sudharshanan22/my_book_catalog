@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h3>The Books published by {{ mypublication.name }}</h3>
-    {% for book in published_books %}
-    <p>{{book}}</p>
-    {% endfor %}
-  </body>
-</html>
+{% extends 'base.html' %}
+{% block body_block %}
+<h2><b>The Books published by {{ mypublication.name }}</b></h2>
+{% for book in published_books %}
+<p>{{book}}</p>
+{% endfor %}
+{% endblock %}
