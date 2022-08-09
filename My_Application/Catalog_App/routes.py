@@ -12,7 +12,6 @@ def homepage():
 def book_list():
     Books_list  = Book.query.all() #All the books are queried and added in the list Books_list
     publisher = Publication.query.all()
-    loginstatus = True
     return render_template('booklist.html',Books_list=Books_list,publisher=publisher,loginstatus=loginstatus)
 
 @myblueprint.route('/publication/<pub_id>')
@@ -23,7 +22,6 @@ def publication_detail(pub_id):
 
 @myblueprint.route('/add_book',methods=["GET","POST"])
 def addbook():
-    loginstatus = True
     form = AddBook()
     if request.method == "POST":
         Book.add_book(form.title.data,form.author.data,form.avg_ratting.data,form.format.data,form.image.data,form.num_pages.data,form.pub_id.data)

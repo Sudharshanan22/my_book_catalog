@@ -1,0 +1,12 @@
+## 2 Applications one for authentication and another to show the catlogue
+## Signup == when signup is done the data are saved in the db
+## Login == Checks the username and password and logs in (ie: routes us to API "/booklist")
+## Add Books == We can add books by giving the required details --> when posting (submit) the data is added to the Book db
+               --> and takes us to the "/booklist" when the newly added book can be seen
+## added a variable called loginstatus for showing some of the nav bar icons only after login
+
+Errors and Bugs:
+## We can go to diffrent api like ("/booklist","/addbook","/home") directly by giving the path (ie: we can get to these pages whithout login when they are directly called)
+## Confirm password while signup is not working
+## During login if wrong password is given it gives out an wrong error message ("Mail iD is already registered").. Assuming a issue with flash message
+##

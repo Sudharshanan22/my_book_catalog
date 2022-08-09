@@ -10,17 +10,21 @@
   {% endwith %}
    {{ form.hidden_tag() }}  <!-- CSRF token in Flask -->
 
-      <p>Enter your name  : {{ form.name}}</p>
-      <p>Enter your Email : {{ form.email}}</p>
-      <p>Password         : {{ form.password }}</p>
-      <p>Confirm Password : {{ form.confirm }}</p>
-    <input class ="btn-success" type="submit" name="" value="Submit">
+      <p>Enter your name  : </p>
+      <p>  {{ form.name}} </p>
+      <p>Enter your Email : </p>
+      <p>{{ form.email}} </p>
+      <p>Password         :</p>
+      <p> {{ form.password }}</p>
+      <p>Confirm Password : </p>
+      <p>{{ form.confirm }}</p>
+    <input class ="btn btn-success" type="submit" name="" value="Sign Up">
 </form>
 <br>
 <br>
-{% if request.method == "POST" %}
+<!-- {% if request.method == "POST" %}
   <h3>Hi {{name}}, you have registered with us via your mail id {{ email }}</h3>
 
-  <h4>{{Users_lst}}</h4>
+  <h4>{{Users_lst}}</h4> -->
 {% endif %}
 {% endblock %}

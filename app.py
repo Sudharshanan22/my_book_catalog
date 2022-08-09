@@ -13,8 +13,4 @@ if __name__ == '__main__':
 
         # if not Users.query.filter_by(user_name="kana").first():
         #      Users.create_user("kana","kanna@tcs.com","helohello")
-
-
-
-
     myflaskapp.run(debug=True)
