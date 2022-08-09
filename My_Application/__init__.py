@@ -9,6 +9,9 @@ from . import Auth,Catalog_App
 
 db = SQLAlchemy() #mention the DB as SQLAlchemy
 login_manager = LoginManager()
+login_manager.login_view = "auth_blueprint.login" ## Letting the login manager know the function that is used for login (ie: authentication)
+login_manager.session_protection = "strong"   ## Not manditory (to delete the login history so that the credentials can not be stolen). deletes all the cookes after logout
+
 
 def create_app(config='dev'):
     app = Flask(__name__,static_url_path='/static')

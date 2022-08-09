@@ -1,14 +1,21 @@
 from . import myblueprint
-from flask import render_template,redirect,request,url_for
+from flask import render_template,redirect,request,url_for,flash
 from .models import Book,Publication
 from .wtf_forms import AddBook
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+#from flask_login import login_required
 
 loginstatus = True
+
 @myblueprint.route('/home',methods = ['GET','POST'])
+#@login_required
 def homepage():
     return render_template('home.html',loginstatus=loginstatus)
 
 @myblueprint.route('/booklist')
+#@login_required
 def book_list():
     Books_list  = Book.query.all() #All the books are queried and added in the list Books_list
     publisher = Publication.query.all()
@@ -27,3 +34,17 @@ def addbook():
         Book.add_book(form.title.data,form.author.data,form.avg_ratting.data,form.format.data,form.image.data,form.num_pages.data,form.pub_id.data)
         return redirect(url_for('myblueprint.book_list'))
     return render_template('addbook.html',form=form,loginstatus = loginstatus)
+
+
+######################################################################################
+## CHANGES REQUIRED FOR DELETE FUNCTION NOT YET FUNCTION PROPERLY ###################
+## Might be the creation of db here again isted of importing from catlog_app/__init__
+@myblueprint.route('/delete_book/<id>',methods=["GET","POST"])
+def deletebook(id):
+    mybook = Book.query.get(id)
+    if request.method == "POST":
+        db.session.delete(mybook)
+        db.session.commit()
+        flash("Book is deleted successfully ")
+        return redirect(url_for("myblueprint.book_list"))
+    return render_template("confirm_delete.html",mybook= mybook,book_id=mybook.id)
