@@ -2,9 +2,6 @@ from . import auth_blueprint
 from flask import render_template,request,flash,redirect,url_for
 from .wtf_forms import Registration
 from .models import Users
-
-
-
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
