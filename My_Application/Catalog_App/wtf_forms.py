@@ -12,3 +12,9 @@ class AddBook(FlaskForm):
     num_pages = IntegerField()
     pub_id=IntegerField()
     submit = SubmitField()
+
+class UpdateBook(FlaskForm):
+    avg_ratting=IntegerField()
+    format=StringField(10)
+    image= StringField(10)
+    num_pages = IntegerField()

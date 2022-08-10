@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<h4>Sorry this page does not exist</h4>
+<p>Please click on the bellow link for the home page</p>
+<a href="{{url_for('auth_blueprint.login')}}">Home</a>
+{% endblock %}

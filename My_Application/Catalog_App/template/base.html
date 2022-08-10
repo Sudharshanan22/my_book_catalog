@@ -23,12 +23,14 @@
       {% endif %}
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li> -->
+
       {% if loginstatus == False %}
       <li><a href="{{url_for('auth_blueprint.signup')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="{{ url_for('auth_blueprint.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       {% else %}
-        <li><a href="{{ url_for('auth_blueprint.login')}}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      <li><a href="{{ url_for('auth_blueprint.login')}}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+        <!-- Need to try adding the user name in the base page on top like profile -->
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span>{{ user }}</a></li> -->
       {% endif %}
     </ul>
   </div>
