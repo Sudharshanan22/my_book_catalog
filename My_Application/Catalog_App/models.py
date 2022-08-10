@@ -1,5 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+
+## We are creating a db here insted of importing from My_Applicationto as we were getting circular import error
+
 db = SQLAlchemy()
 
 

@@ -34,3 +34,10 @@ def signup():
         flash("Registration sucessful...! ") ## flash messages are notifications to get (used insted of java script alert)
         return redirect(url_for("auth_blueprint.login"))
     return render_template('signup.html',form=form,loginstatus = False)
+
+
+## When we unfortunately go to a random path (eg:  hostname/kjhlkjhl), We will be getting 404 page not found error
+## To avoid the 404 error we create the bellow function with blueprint.app_errorhandler(404) so that this function is activated incase error
+@auth_blueprint.app_errorhandler(404)
+def page_not_found(error):
+    return render_template("404_error.html"),404

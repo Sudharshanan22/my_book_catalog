@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+<form class="" action="" method="POST">
+  <h3>Update {{mybook}} </h3>
+  <p>Ratting: </p>
+  <p>{{ form.avg_ratting }}</p>
+  <p>Book Format</p>
+  <p>{{ form.format }}</p>
+  <p>Cover Picture </p>
+  <p>{{ form.image }}</p>
+  <p>Number of Pages</p>
+  <p>{{ form.num_pages }}</p>
+
+  <input type="submit" name="" value="Update">
+</form>
+{% endblock %}

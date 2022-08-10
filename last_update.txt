@@ -6,11 +6,11 @@
 ## Add Books == We can add books by giving the required details --> when posting (submit) the data is added to the Book db
                --> and takes us to the "/booklist" when the newly added book can be seen
 ## added a variable called loginstatus for showing some of the nav bar icons only after login
+## Created a Update and delete option under each book for the update and deleted
+## Added a function so we can get a custom page incase of 404 page not found error
 
 Errors and Bugs:
 ## We can go to diffrent api like ("/booklist","/addbook","/home") directly by giving the path (ie: we can get to these pages whithout login when they are directly called)
 ## Confirm password while signup is not working
-## Unable to do the delete operation for books (Assuming that db needs to be imported from catlog_app/__init__ insted of creating on routes.py)
-## 
-
-COMMITED ONLY TO FIRST BRANCH NOT YET PULLED TO THE MAIN
+## Flash messages are not properly configured (getting flashes that was activated at diffrent pages)
+##
